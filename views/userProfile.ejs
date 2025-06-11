@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .sidebar {
+      height: 100vh;
+      width: 240px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #343a40;
+      color: #fff;
+      padding-top: 30px;
+    }
+
+    .sidebar h4 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffc107;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 20px;
+      color: #ccc;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #495057;
+      color: #fff;
+    }
+
+    .main-content {
+      margin-left: 240px;
+      padding: 30px;
+    }
+
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .main-header h3 {
+      margin: 0;
+    }
+
+    .logout-btn {
+      color: #dc3545;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .logout-btn:hover {
+      text-decoration: underline;
+    }
+
+    .section {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .section h5 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h4>User Dashboard</h4>
+    <a href="/profile">My Profile</a>
+    <a href="/attendance">Mark Absence</a>
+    <a href="/attendance/report">View Absence Report</a>
+    <a href="/feedback">Submit Feedback</a>
+    <a href="/payment/payment-page">Make Payments</a>
+    <a href="/user/menu">View Menu</a>
+    <a href="/auth/logout" class="logout-btn">Logout</a>
+  </div>
+
+  <div class="main-content">
+    <div class="main-header">
+      <h3>User Profile</h3>
+      <a href="/auth/logout" class="logout-btn">Logout</a>
+    </div>
+
+    <div class="section">
+      <h5>Profile Details</h5>
+      <p><strong>Name:</strong> User123</p>
+      <p><strong>Email:</strong> user123@example.com</p>
+      <p><strong>Phone:</strong> +1234567890</p>
+      <p><strong>Address:</strong> Some Street, Some City</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Attendance</title>
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <style>
+    .list-group
+    {
+      margin: 0 150px 0 150px;
+    }
+    h3,h2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="container mt-5">
+     <!-- Check if there's any message to display -->
+     <% if (message) { %>
+      <div class="alert alert-warning"><%= message %></div>
+     <% } %>
+    <h1 class="mb-4 text-center">Mark Attendance</h1>
+
+    <form action="/attendance/mark" method="POST" class="mb-5">
+      <div class="form-group">
+        <label for="date">Select Date:</label>
+        <input type="date" name="date" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-warning">Mark Absence</button>
+      <a href="/home" class="btn btn-secondary">Back</a>
+      <!-- <div class="mt-4">
+        <a href="/home" class="btn btn-secondary">Back</a>
+      </div> -->
+    </form>
+
+    <h3 class="mb-3">Your Absences</h3>
+    <ul class="list-group">
+      <% records.forEach(record => { %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= record.date.toDateString() %>
+          <span class="badge badge-danger badge-pill"><%= record.status %></span>
+        </li>
+      <% }) %>
+    </ul>
+
+    <% if (totalDaysInMonth && absentDays !== null && presentDays !== null && totalPayment !== null) { %>
+      <h3>Payment Summary for <%= new Date().toLocaleString('default', { month: 'long' }) %></h3>
+      <ul class="list-group">
+        <li class="list-group-item">Total Days: <strong><%= totalDaysInMonth %></strong></li>
+        <li class="list-group-item">Absent Days: <strong><%= absentDays %></strong></li>
+        <li class="list-group-item">Present Days: <strong><%= presentDays %></strong></li>
+        <li class="list-group-item">Per Day Rate: <strong>₹63</strong></li>
+        <li class="list-group-item bg-success text-white">
+          Total Payment: ₹<%= totalPayment %>
+        </li>
+      </ul>
+    <% } %>
+
+  </div>
+
+  
+
+  <!-- <% if (totalDaysInMonth && absentDays !== null && presentDays !== null && totalPayment !== null) { %>
+    <h3>Payment Summary for <%= new Date().toLocaleString('default', { month: 'long' }) %></h3>
+    <ul class="list-group">
+      <li class="list-group-item">Total Days: <strong><%= totalDaysInMonth %></strong></li>
+      <li class="list-group-item">Absent Days: <strong><%= absentDays %></strong></li>
+      <li class="list-group-item">Present Days: <strong><%= presentDays %></strong></li>
+      <li class="list-group-item">Per Day Rate: <strong>₹63</strong></li>
+      <li class="list-group-item bg-success text-white">
+        Total Payment: ₹<%= totalPayment %>
+      </li>
+    </ul>
+  <% } %> -->
+
+  <!-- Bootstrap JS (optional for dropdowns etc.) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

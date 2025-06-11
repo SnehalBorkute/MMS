@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+  <title>Admin Budget</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .card {
+      margin: 2rem auto;
+      max-width: 800px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+    .form-control {
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="card p-4">
+      <h3 class="text-center mb-4">💰 Budget Management</h3>
+
+      <form id="budgetForm" action="/admin/budget" method="POST">
+        <div class="mb-3">
+          <label for="totalCollection" class="form-label">Total Collection (₹)</label>
+          <input type="number" name="totalCollection" id="totalCollection" class="form-control" required oninput="calculateLeftAmount()">
+        </div>
+
+        <div id="itemContainer">
+          <div class="row mb-2 item-entry">
+            <div class="col-md-6">
+              <input type="text" name="items[]" class="form-control" placeholder="Item Name" required>
+            </div>
+            <div class="col-md-6">
+              <input type="number" name="prices[]" class="form-control price-field" placeholder="Price ₹" required oninput="calculateLeftAmount()">
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-secondary mb-3" onclick="addItem()">➕ Add Item</button>
+
+        <div class="mb-2">
+          <label class="form-label">Total Budget (sum of prices): ₹ <span id="totalPrice">0</span></label>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label">Left Amount (Collection - Budget): ₹ <span id="leftAmount">0</span></label>
+        </div>
+
+        <div class="d-flex justify-content-between flex-wrap gap-2">
+          <a href="/admin/dashboard" class="btn btn-outline-primary">← Back</a>
+          <a href="/admin/budget/history" class="btn btn-secondary"> View Previous Budgets</a>
+          <button type="submit" class="btn btn-success">Save Budget</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function addItem() {
+      const container = document.getElementById("itemContainer");
+      const row = document.createElement("div");
+      row.className = "row mb-2 item-entry";
+      row.innerHTML = `
+         
+          <div class="col-md-6">
+          <input type="text" name="items[]" class="form-control" placeholder="Item Name" required>
+        </div>
+        <div class="col-md-6">
+          <input type="number" name="prices[]" class="form-control price-field" placeholder="Price ₹" required oninput="calculateLeftAmount()">
+        </div>
+      `;
+      container.appendChild(row);
+      addPriceListeners();
+    }
+
+    function calculateLeftAmount() {
+      const prices = document.querySelectorAll(".price-field");
+      let total = 0;
+      prices.forEach(input => {
+        const val = parseFloat(input.value);
+        if (!isNaN(val)) total += val;
+      });
+      document.getElementById("totalPrice").textContent = total.toFixed(2);
+
+      const totalCollection = parseFloat(document.getElementById("totalCollection").value) || 0;
+      const left = totalCollection - total;
+      document.getElementById("leftAmount").textContent = left.toFixed(2);
+    }
+
+    function addPriceListeners() {
+      const prices = document.querySelectorAll(".price-field");
+      prices.forEach(input => {
+        input.removeEventListener("input", calculateLeftAmount);
+        input.addEventListener("input", calculateLeftAmount);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      addPriceListeners();
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

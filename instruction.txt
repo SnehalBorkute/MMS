@@ -1,0 +1,14 @@
+
+1. Open folder in vscode (any code editor)
+2. Open terminal (ctrl + ~)
+3. Initialize the project 
+    write below caommand in terminal
+    npm i
+4. start the server 
+    Write command in terminal    
+    nodemon app.js
+5. server will start on port 5000
+
+
+
+website render on 

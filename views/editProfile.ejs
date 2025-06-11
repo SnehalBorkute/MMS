@@ -1,0 +1,97 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Profile</h2>
+        <form action="/user/edit" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= user.name %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="mobile" class="form-label">Mobile</label>
+                <input type="text" class="form-control" id="mobile" name="mobile" value="<%= user.mobile %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="year" class="form-label">Year</label>
+                <input type="text" class="form-control" id="year" name="year" value="<%= user.year %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="branch" class="form-label">Branch</label>
+                <input type="text" class="form-control" id="branch" name="branch" value="<%= user.branch %>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Profile</button>
+        </form>
+    </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - <%= user.name %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .edit-profile-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .edit-profile-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="edit-profile-container">
+        <h2>Edit Your Profile</h2>
+
+        <!-- Form to update name, mobile, year, branch -->
+        <form action="/user/profile/update" method="POST">
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" name="name" value="<%= user.name %>" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mobile</label>
+                <input type="text" name="mobile" value="<%= user.mobile %>" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Year</label>
+                <input type="text" name="year" value="<%= user.year %>" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Branch</label>
+                <input type="text" name="branch" value="<%= user.branch %>" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-warning w-100">Update Info</button>
+        </form>
+
+        <hr class="my-4">
+
+        <!-- Form to upload profile picture -->
+        <!-- <form action="/user/profile/upload" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label">Upload Profile Picture</label>
+                <input type="file" name="profilePicture" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-secondary w-100">Upload Picture</button>
+        </form> -->
+
+        <!-- <a href="/user/profile" class="btn btn-link mt-3 w-100">Back to Profile</a> -->
+        <a href="/user/profile" class="btn btn-secondary mt-3 w-100">Back</a>
+    </div>
+</body>
+</html>

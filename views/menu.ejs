@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Today's Menu</title>
+    <link rel="stylesheet" href="/css/menu">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="p-4">
+
+  <div class="container">
+    <h2 class="mb-4 text-center">Today's Menu</h2>
+
+    <!-- Menu List -->
+    <% if (menuList.length > 0) { %>
+      <ul class="list-group">
+        <% menuList.forEach(menu => { %>
+          <li class="list-group-item mb-3">
+            <h5><strong><%= menu.day %> - <%= menu.type %></strong> (<%= new Date(menu.date).toLocaleDateString() %>)</h5>
+            <ul class="list-group mt-2">
+              <% menu.items.forEach(item => { %>
+                <li class="list-group-item"><%= item %></li>
+              <% }) %>
+            </ul>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p class="mt-4 text-muted">No menu available for today.</p>
+    <% } %>
+
+    <!-- Optional: Add a Back Button -->
+    <a href="/home" class="btn btn-secondary mt-4">Back to Dashboard</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Users</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    Bootstrap CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    
+    <!-- <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+
+        .search-bar {
+            max-width: 400px;
+            margin: 0 auto 20px;
+        }
+
+        table {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .highlight {
+            background-color: #fff3cd !important;
+        }
+
+        .back-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn-danger {
+            font-size: 14px;
+            padding: 5px 12px;
+        }
+
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            th, td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                width: 45%;
+                padding-left: 10px;
+                font-weight: bold;
+                text-align: left;
+            }
+
+            th {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Registered Users</h2>
+
+   Search Bar -->
+    <!-- <div class="search-bar">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search by name...">
+    </div>
+
+   - Users Table 
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered mt-3 text-center" id="userTable">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(user => { %>
+                    <tr>
+                        <td data-label="Name"><%= user.name %></td>
+                        <td data-label="Email"><%= user.email %></td>
+                        <td data-label="Action">
+                            <form action="/admin/users/delete/<%= user._id %>" method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div> -->
+
+    <!-- Back Button -->
+    <!-- <div class="back-button">
+        <a href="/admin/dashboard" class="btn btn-secondary">Back</a>
+    </div> -->
+
+    <!-- Search Script -->
+    <!-- <script>
+        const searchInput = document.getElementById("searchInput");
+        const rows = document.querySelectorAll("#userTable tbody tr");
+
+        searchInput.addEventListener("keyup", () => {
+            const query = searchInput.value.toLowerCase();
+            rows.forEach(row => {
+                const name = row.cells[0].textContent.toLowerCase();
+                if (name.includes(query)) {
+                    row.style.display = "";
+                    row.classList.add("highlight");
+                } else {
+                    row.style.display = "none";
+                    row.classList.remove("highlight");
+                }
+
+                if (!query) {
+                    row.classList.remove("highlight");
+                }
+            });
+        });
+    </script>
+</body>
+</html>  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Users</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #343a40;
+    }
+
+    .search-bar {
+      max-width: 400px;
+      margin: 0 auto 20px;
+    }
+
+    table {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .highlight {
+      background-color: #fff3cd !important;
+    }
+
+    .back-button {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .btn-danger {
+      font-size: 14px;
+      padding: 5px 12px;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th, td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+      }
+
+      th {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Registered Users</h2>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" class="form-control" placeholder="Search by name...">
+  </div>
+
+  <!-- Users Table -->
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered mt-3 text-center" id="userTable">
+      <thead class="table-dark">
+        <tr>
+          <th>Sr no.</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach((user, index) => { %>
+          <tr>
+            <td data-label="sr no"><%= index + 1 %></td>
+            <td data-label="Name"><%= user.name %></td>
+            <td data-label="Email"><%= user.email %></td>
+            <td data-label="Mobile"><%= user.mobile || 'N/A' %></td>
+            <td data-label="Action">
+              <form action="/admin/users/delete/<%= user._id %>" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Back Button -->
+  <div class="back-button">
+    <a href="/admin/dashboard" class="btn btn-secondary">Back</a>
+  </div>
+
+  <!-- Search Script -->
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const rows = document.querySelectorAll("#userTable tbody tr");
+
+    searchInput.addEventListener("keyup", () => {
+      const query = searchInput.value.toLowerCase();
+      rows.forEach(row => {
+        const name = row.cells[1].textContent.toLowerCase();
+        if (name.includes(query)) {
+          row.style.display = "";
+          row.classList.add("highlight");
+        } else {
+          row.style.display = "none";
+          row.classList.remove("highlight");
+        }
+
+        if (!query) {
+          row.classList.remove("highlight");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

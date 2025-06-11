@@ -1,0 +1,210 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Landing Page</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="content">
+            <h1>Welcome to Our Platform</h1>
+            <p>Empowering you with seamless solutions and a great user experience.</p>
+            <div class="buttons">
+                <a href="/auth/login" class="btn">Login</a>
+                <a href="/auth/signup" class="btn">Sign Up</a>
+                <a href="/learn-more" class="btn">Learn More</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        ::selection {
+            color: #ff6a00;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('food3new.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            /* background-position: center; */
+            color: white;
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+        }
+        .navbar .heading {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+        .navbar .links {
+            display: flex;
+        }
+        .navbar .links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 50px;
+        }
+        .navbar .links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+        .content {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+        }
+        .animated-text {
+            font-size: 4em;
+            font-weight: bold;
+            animation: color-change 2s linear infinite;
+            justify-content: center;
+            display: flex;
+        }
+        @keyframes color-change {
+            0% {
+                color: rgb(115, 4, 4);
+            }
+            50% {
+                color: rgb(31, 79, 11);
+            }
+            100% {
+                color: rgb(24, 3, 3);
+            }
+        }
+        .description {
+            margin-top: 55px;
+            font-size: 1.5em;
+            opacity: 0;
+            animation: fadeIn 3s ease-in forwards;
+            color: rgb(70, 64, 64);
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            } 
+        }
+        @media (max-width: 1024px) {
+            .animated-text {
+                font-size: 2em;
+            }
+            .description {
+                font-size: 1em;
+            }
+            .navbar .heading {
+                font-size: 1.8em;
+            }
+            .navbar .links a {
+                font-size: 1.1em;
+            }
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+            .animated-text {
+                font-size: 1.5em;
+            }
+            .description {
+                font-size: 0.9em;
+            }
+            .navbar .heading {
+                font-size: 1.5em;
+            }
+            .navbar .links a {
+                font-size: 1em;
+                margin: 5px;
+            }
+            body{
+                background-image: url(/food3new.jpg);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .content {
+                font-size: 1.4rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+            .animated-text {
+                font-size: 1.2em;
+            }
+            .description {
+                font-size: 0.8em;
+            }
+            .navbar .heading {
+                font-size: 1.2em;
+            }
+            .navbar .links a {
+                font-size: 0.8em;
+                margin: 5px;
+            }
+            body{
+                background-image: url(/food3new.jpg);
+                background-position: center;
+                background-size: cover;
+            }
+            .content {
+                font-size: 1.4rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="heading">A Bite Of Happiness</div>
+        <div class="links">
+            <a href="/auth/signup" class="btn">Sign Up</a>
+            <a href="/about " class="btn">About Us</a>
+            <a href="/contact" class="btn">Contact Us</a>
+            <a href="/auth/login" class="btn">Login</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="animated-text"><strong>"Good Food, Great Mood!"</strong></div>
+        <div class="description">
+            <p>Our Mess Management System makes dining easy and efficient Enjoy smooth <br>operations and  happier meals every day!</p>
+        </div>
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,95 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+        .dashboard-container {
+            padding: 30px;
+        }
+        .dashboard-header {
+            background-color: #212529;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dashboard-header h3 {
+            margin: 0;
+        }
+        .card {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .card h5 {
+            font-weight: bold;
+        }
+        .btn {
+            border-radius: 20px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">
+        <h3> Welcome, Admin@123 &nbsp;</h3>
+        <div>
+            <a href="/" class="text-danger font-weight-bold">Logout</a>
+        </div>
+    </div>
+
+    <div class="container dashboard-container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <h5>Attendance Tracking</h5>
+                    <!-- <a href="/admin/attendance" class="btn btn-primary mt-2">View Attendance</a> -->
+                    <a href="/admin-attendance/today" class="btn btn-primary">View Attendance</a>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <h5>Payment Management</h5>
+                    <a href="/admin/payments" class="btn btn-success mt-2">View Payments</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <h5>Menu Management</h5>
+                    <a href="/admin/menu" class="btn btn-warning mt-2">Manage Menu</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <h5>User Feedback</h5>
+                    <a href="/admin/feedback" class="btn btn-info mt-2">View Feedback</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <h5>User Management</h5>
+                    <a href="/admin/users" class="btn btn-danger mt-2">Manage Users</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <h5>Display Budget</h5>
+                    <a href="/admin/budget" class="btn btn-secondary mt-2">Display Budget</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

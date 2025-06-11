@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us – Mess Management System</title>
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  >
+  <!-- Custom CSS for Styling -->
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Arial', sans-serif;
+    }
+    h1, h3, h5 {
+      color: #333;
+    }
+    .lead {
+      color: #6c757d;
+    }
+    .contact-info .list-group-item {
+      border: none;
+      padding: 12px;
+      background-color: #fff;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+    .contact-info .list-group-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .contact-info .list-group-item strong {
+      color: #44332e;
+    }
+    .contact-info .list-group-item .text-muted {
+      font-size: 0.9rem;
+    }
+    .call-us {
+      background-color: #6c757d;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    .call-us:hover {
+      background-color: #8c959c;
+      cursor: pointer;
+    }
+   
+    .img-fluid {
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .navbar {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+        }
+        .navbar .heading {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-left: 20px;
+            color: white;
+        }
+        .navbar .links {
+            display: flex;
+        }
+        .navbar .links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 50px;
+        }
+        .navbar .links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 1024px) {
+            .animated-text {
+                font-size: 2em;
+            }
+            .description {
+                font-size: 1em;
+            }
+            .navbar .heading {
+                font-size: 1.8em;
+            }
+            .navbar .links a {
+                font-size: 1.1em;
+            }
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+            .animated-text {
+                font-size: 1.5em;
+            }
+            .description {
+                font-size: 0.9em;
+            }
+            .navbar .heading {
+                font-size: 1.5em;
+            }
+            .navbar .links a {
+                font-size: 1em;
+                margin: 5px;
+            }
+           
+        }
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+            .animated-text {
+                font-size: 1.5em;
+            }
+            .description {
+                font-size: 0.9em;
+            }
+            .navbar .heading {
+                font-size: 1.2em;
+            }
+            .navbar .links a {
+                font-size: 0.8em;
+                margin: 5px;
+            }
+           
+        }
+  </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="heading">A Bite Of Happiness</div>
+        <div class="links">
+            <a href="index" class="btn">Home</a>
+            <a href="/auth/signup" class="btn">Sign Up</a>
+            <a href="/about " class="btn">About Us</a>
+            <a href="/contact" class="btn">Contact Us</a>
+            <a href="/auth/login" class="btn">Login</a>
+            
+        </div>
+    </div>
+
+  <div class="container py-5">
+    <h1 class="mb-4 text-center">Contact Us</h1>
+
+    <!-- Introductory Section -->
+    <div class="row mb-4 justify-content-center text-center">
+      <div class="col-md-8">
+        <h3 class="fw-bold">We’re here to assist with your mess operations</h3>
+        <p class="text-muted">
+          Need help? We're ready to assist you with any queries regarding mess management, meal plans, and registrations.
+        </p>
+      </div>
+      <!-- <div class="col-md-4 text-center">
+        <img src="https://via.placeholder.com/150x150" alt="Support" class="img-fluid" />
+      </div> -->
+    </div>
+
+    <!-- Contact Info Section -->
+    <div class="row justify-content-center mb-4 contact-info">
+      <div class="col-md-6">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Phone:</strong> +91‑9876543210</li>
+          <li class="list-group-item"><strong>Email:</strong> support@messsystem.example.com</li>
+          <li class="list-group-item"><strong>WhatsApp:</strong> +91‑9123456780</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Call Us Section -->
+    <div class="row mt-4">
+      <div class="col-md-6 mx-auto">
+        <div class="call-us">
+          <h5 class="fw-bold">Call Us</h5>
+          <p class="fw-semibold text-decoration-underline">040-67607600</p>
+          <p class="text-muted">Mon - Sun | 9:00 AM - 7:00 PM</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+</body>
+</html>
+

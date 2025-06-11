@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Mess Management System</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .navbar {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+        }
+        .navbar .heading {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-left: 20px;
+            color: white;
+        }
+        .navbar .links {
+            display: flex;
+        }
+        .navbar .links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 50px;
+        }
+        .navbar .links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 1024px) {
+            .animated-text {
+                font-size: 2em;
+            }
+            .description {
+                font-size: 1em;
+            }
+            .navbar .heading {
+                font-size: 1.8em;
+            }
+            .navbar .links a {
+                font-size: 1.1em;
+            }
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+            .animated-text {
+                font-size: 1.5em;
+            }
+            .description {
+                font-size: 0.9em;
+            }
+            .navbar .heading {
+                font-size: 1.5em;
+            }
+            .navbar .links a {
+                font-size: 1em;
+                margin: 5px;
+            }
+           
+        }
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+            .animated-text {
+                font-size: 1.5em;
+            }
+            .description {
+                font-size: 0.9em;
+            }
+            .navbar .heading {
+                font-size: 1.2em;
+            }
+            .navbar .links a {
+                font-size: 0.8em;
+                margin: 5px;
+            }
+           
+        }
+
+  </style>
+</head>
+<body class="bg-light">
+    <div class="navbar">
+        <div class="heading">A Bite Of Happiness</div>
+        <div class="links">
+            <a href="/index" class="btn">Home</a>
+            <a href="/auth/signup" class="btn">Sign Up</a>
+            <a href="/about " class="btn">About Us</a>
+            <a href="/contact" class="btn">Contact Us</a>
+            <a href="/auth/login" class="btn">Login</a>
+        </div>
+    </div>
+
+  <!-- About Us Section -->
+  <div class="container mt-5 pt-4"> <!-- Added pt-4 for more top space -->
+    <div class="card shadow-lg border-0 mt-4"> <!-- Additional mt-4 for more spacing -->
+      <div class="card-body p-5 ">
+        <h1 class="card-title text-#333 mb-4">About Us</h1>
+        <p class="card-text">
+          Welcome to our <strong>Mess Management System</strong> — a modern solution to streamline daily mess operations with ease and transparency.
+        </p>
+        <p class="card-text">
+          We help manage meals, track attendance, collect feedback, and handle billing — all in one centralized platform.
+        </p>
+        <p class="card-text">
+          Our mission is to reduce food wastage, save time, and enhance the mess experience for both students and staff.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-secondary text-center p-5 ">
+    &copy; <%= new Date().getFullYear() %> Mess Management System
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

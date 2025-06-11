@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Today's Absentees</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Today's Absentees</h2>
+
+    <input class="form-control mb-3" id="searchInput" type="text" placeholder="Search by name...">
+
+    <ul class="list-group" id="absenteeList">
+        <% absentees.forEach(absent => { %>
+            <li class="list-group-item d-flex justify-content-between align-items-center absentee-item">
+                <div>
+                    <strong class="student-name"><%= absent.userId.name %></strong><br/>
+                    <small><%= absent.userId.email %></small>
+                </div>
+                <div>
+                    <span class="badge badge-danger mr-2"><%= absent.status %></span>
+                    <a href="/admin-attendance/history/<%= absent.userId._id %>" class="btn btn-sm btn-info">View History</a>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
+
+    <a href="/admin/dashboard" class="btn btn-secondary mt-4">Back to Dashboard</a>
+</div>
+
+<script>
+    const searchInput = document.getElementById("searchInput");
+    const list = document.getElementById("absenteeList");
+    const allItems = Array.from(document.querySelectorAll(".absentee-item"));
+
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.trim().toLowerCase();
+
+        // Separate matching and non-matching items
+        const matched = [];
+        const unmatched = [];
+
+        allItems.forEach(item => {
+            const name = item.querySelector(".student-name").textContent.toLowerCase();
+            if (name.includes(query)) {
+                item.style.display = "";
+                matched.push(item);
+            } else {
+                item.style.display = query ? "none" : "";
+                unmatched.push(item);
+            }
+        });
+
+        // Clear and re-append matched items at the top if there's a query
+        list.innerHTML = "";
+        if (query) {
+            matched.forEach(item => list.appendChild(item));
+        } else {
+            allItems.forEach(item => list.appendChild(item)); // Restore original order
+        }
+    });
+</script>
+</body>
+</html>

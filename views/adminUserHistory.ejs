@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= user.name %>'s Absence History</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h3 class="mb-4 text-center"><%= user.name %>'s Absence History</h3>
+
+    <% if (history.length > 0) { %>
+        <ul class="list-group">
+            <% history.forEach(entry => { %>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <%= entry.date.toDateString() %>
+                    <span class="badge badge-danger"><%= entry.status %></span>
+                </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p class="text-center text-muted">No absence records found for this student.</p>
+    <% } %>
+
+    <a href="/admin-attendance/today" class="btn btn-secondary mt-4">Back</a>
+</div>
+</body>
+</html>
